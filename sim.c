@@ -47,6 +47,16 @@ struct general_purpose_registers_64 {
 	uint64_t r15;	
 };
 
+// check if correct
+struct segment_registers_64 {
+	uint16_t cs;
+	uint16_t ds;
+	uint16_t ss;
+	uint16_t es;
+	uint16_t fs;
+	uint16_t gs;
+}
+
 int main(){
 	
 }
