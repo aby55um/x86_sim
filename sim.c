@@ -28,6 +28,8 @@ struct segment_registers_32 {
 	uint16_t gs;
 };
 
+uint32_t eip;
+
 struct general_purpose_registers_64 {
 	uint64_t rax;
 	uint64_t rbx;
@@ -56,6 +58,8 @@ struct segment_registers_64 {
 	uint16_t fs;
 	uint16_t gs;
 }
+
+uint64_t rip;
 
 int main(){
 	
