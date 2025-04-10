@@ -30,6 +30,8 @@ struct segment_registers_32 {
 
 uint32_t eip;
 
+uint32_t eflags;
+
 struct general_purpose_registers_64 {
 	uint64_t rax;
 	uint64_t rbx;
@@ -60,6 +62,8 @@ struct segment_registers_64 {
 }
 
 uint64_t rip;
+
+uint64_t rflags;
 
 int main(){
 	
