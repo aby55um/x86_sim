@@ -32,6 +32,8 @@ uint32_t eip;
 
 uint32_t eflags;
 
+uint16_t control_register_32;
+
 struct general_purpose_registers_64 {
 	uint64_t rax;
 	uint64_t rbx;
