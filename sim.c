@@ -29,10 +29,25 @@ struct segment_registers_32 {
 };
 
 uint32_t eip;
-
 uint32_t eflags;
-
 uint16_t control_register_32;
+uint16_t status_register_32;
+uint16_t tag_register_32;
+// 11 bits opcode register
+uint16_t opcode_register_32;
+
+//32-bit todo:
+//Eight 80-bit FPU registers (floating point registers)
+//FPU Instruction Pointer Register (48 bits)
+//FPU Data (Operand) Pointer Register (48 bits)
+//eight 64-bit MMX registers
+//eight 128-bit XMM registers
+//MXCSR register (32-bits)
+//eight 256-bit YMM registers
+//Four 128-bit Registers - Bounds registers
+//BNDCFGU register
+//BNDSTATUS register
+
 
 struct general_purpose_registers_64 {
 	uint64_t rax;
