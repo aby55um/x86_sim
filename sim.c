@@ -82,6 +82,22 @@ uint64_t rip;
 
 uint64_t rflags;
 
+//64-bit todo:
+//eight 80-bit FPU registers (floating point)
+//16 bits Control Register
+//16 bits Status Register
+//16 bits Tag Register
+//11 bits opcode register
+//48 bits FPU Instruction Pointer Register
+//48 bits FPU Data (Operand) Pointer Register
+//eight 64 bits MMX Registers
+//eight 128 bit XMM Register
+//32 bit MXCSR Register
+//eight 256 bit YMM Registers
+//four 128-bit registers - Bound registers
+//BNDCFGU Register
+//BNDSTATUS Register
+
 int main(){
 	
 }
