@@ -48,6 +48,18 @@ uint16_t opcode_register_32;
 //BNDCFGU register
 //BNDSTATUS register
 
+//todo: check if the general purpose fpu register list is correct
+struct general_purpose_fpu_registers_32 {
+	uint8_t s0[10];
+	uint8_t s1[10];
+	uint8_t s2[10];
+	uint8_t s3[10];
+	uint8_t s4[10];
+	uint8_t s5[10];
+	uint8_t s6[10];
+	uint8_t s7[10];
+}
+
 
 struct general_purpose_registers_64 {
 	uint64_t rax;
