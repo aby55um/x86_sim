@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <SDL3/SDL.h>
 
 struct general_purpose_registers_32 {
 	uint32_t eax;
@@ -58,7 +59,7 @@ struct general_purpose_fpu_registers_32 {
 	uint8_t s5[10];
 	uint8_t s6[10];
 	uint8_t s7[10];
-}
+};
 
 
 struct general_purpose_registers_64 {
@@ -88,7 +89,7 @@ struct segment_registers_64 {
 	uint16_t es;
 	uint16_t fs;
 	uint16_t gs;
-}
+};
 
 uint64_t rip;
 
