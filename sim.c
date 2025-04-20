@@ -120,11 +120,15 @@ static SDL_Renderer *renderer = NULL;
 float x, y;
 const char *title = "x86_64 Emulator";
 
+int max_height = 800;
+int max_width = 600;
+
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
     /* Create the window */
     if (!SDL_CreateWindowAndRenderer("x86_64 Emulator", 800, 600, SDL_WINDOW_FULLSCREEN, &window, &renderer)) {
+    //if (!SDL_CreateWindowAndRenderer("x86_64 Emulator", 1280, 720, SDL_WINDOW_FULLSCREEN, &window, &renderer)) {
         SDL_Log("Couldn't create window and renderer: %s\n", SDL_GetError());
         return SDL_APP_FAILURE;
     }
@@ -144,12 +148,14 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
-	int w = 0, h = 0;
-    const float scale = 2.0f; 
+	int w = 800, h = 25;
+    const float scale = 1.5f; 
 
-    x = ((w / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE * SDL_strlen(title)) * 0.5;
-    y = ((h / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE) * 0.1;
-    
+    //x = ((w / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE * SDL_strlen(title)) * 0.5;
+    //y = ((h / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE) * 0.1;
+    x = w / scale - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE * SDL_strlen(title) * 0.5;
+    y = h / scale;
+
     /* Center the title and scale it up */
     SDL_GetRenderOutputSize(renderer, &w, &h);
     SDL_SetRenderScale(renderer, scale, scale);
