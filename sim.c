@@ -98,6 +98,28 @@ uint64_t rip;
 
 uint64_t rflags;
 
+struct fpu_registers_64 {
+	__uint128_t r0;
+	__uint128_t r1;
+	__uint128_t r2;
+	__uint128_t r3;
+	__uint128_t r4;
+	__uint128_t r5;
+	__uint128_t r6;
+	__uint128_t r7;
+
+	uint16_t control_register;
+	uint16_t status_register;
+	uint16_t tag_register;
+
+	//FCS:FIP
+	uint64_t last_instruction_pointer;
+	//FDS:FDP
+	uint64_t last_data_pointer;
+
+	uint16_t opcode;
+};
+
 //64-bit todo:
 //eight 80-bit FPU registers (floating point)
 //16 bits Control Register
@@ -149,7 +171,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
 	int w = 800, h = 25;
-    const float scale = 1.5f; 
+    const float scale = 1.7f; 
 
     //x = ((w / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE * SDL_strlen(title)) * 0.5;
     //y = ((h / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE) * 0.1;
