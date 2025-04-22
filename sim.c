@@ -140,7 +140,9 @@ static SDL_Window *window = NULL;
 static SDL_Renderer *renderer = NULL;
 
 float x, y;
+float x_reg, y_reg;
 const char *title = "x86_64 Emulator";
+const char *rax = "RAX:";
 
 int max_height = 800;
 int max_width = 600;
@@ -171,12 +173,16 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
 	int w = 800, h = 25;
+	int w_reg = 50, h_reg = 100;
     const float scale = 1.7f; 
 
     //x = ((w / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE * SDL_strlen(title)) * 0.5;
     //y = ((h / scale) - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE) * 0.1;
     x = w / scale - SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE * SDL_strlen(title) * 0.5;
     y = h / scale;
+
+    x_reg = w_reg / scale;
+    y_reg = h_reg / scale;
 
     /* Center the title and scale it up */
     SDL_GetRenderOutputSize(renderer, &w, &h);
@@ -187,6 +193,7 @@ SDL_AppResult SDL_AppIterate(void *appstate)
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDebugText(renderer, x, y, title);
+    SDL_RenderDebugText(renderer, x_reg, y_reg, rax);
  
     SDL_RenderPresent(renderer);
 
