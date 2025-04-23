@@ -142,7 +142,7 @@ static SDL_Renderer *renderer = NULL;
 float x, y;
 float x_reg, y_reg;
 const char *title = "x86_64 Emulator";
-const char *rax = "RAX:";
+const char *general[16] = {"RAX:", "RBX:", "RCX:", "RDX:", "RDI:", "RSI:", "RBP:", "RSP:", "R8:", "R9:", "R10:", "R11:", "R12:", "R13:", "R14:", "R15:"};
 
 int max_height = 800;
 int max_width = 600;
@@ -193,7 +193,11 @@ SDL_AppResult SDL_AppIterate(void *appstate)
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDebugText(renderer, x, y, title);
-    SDL_RenderDebugText(renderer, x_reg, y_reg, rax);
+
+    SDL_SetRenderScale(renderer, scale-0.2, scale-0.2);
+    for(int i=0;i<16;i++){
+    	SDL_RenderDebugText(renderer, x_reg, y_reg + 12 * i, general[i]);
+    }
  
     SDL_RenderPresent(renderer);
 
