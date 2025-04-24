@@ -143,6 +143,7 @@ float x, y;
 float x_reg, y_reg;
 const char *title = "x86_64 Emulator";
 const char *general[16] = {"RAX:", "RBX:", "RCX:", "RDX:", "RDI:", "RSI:", "RBP:", "RSP:", "R8:", "R9:", "R10:", "R11:", "R12:", "R13:", "R14:", "R15:"};
+const char *segment[6] = {"CS:","DS:","SS:","ES:","FS:","GS:"};
 
 int max_height = 800;
 int max_width = 600;
@@ -197,6 +198,10 @@ SDL_AppResult SDL_AppIterate(void *appstate)
     SDL_SetRenderScale(renderer, scale-0.2, scale-0.2);
     for(int i=0;i<16;i++){
     	SDL_RenderDebugText(renderer, x_reg, y_reg + 12 * i, general[i]);
+    }
+
+    for(int i=0;i<6;i++){
+    	SDL_RenderDebugText(renderer, x_reg, y_reg + 200 + 12 * i, segment[i]);
     }
  
     SDL_RenderPresent(renderer);
